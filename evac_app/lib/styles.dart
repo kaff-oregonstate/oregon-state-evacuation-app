@@ -75,7 +75,7 @@ class Styles {
     shape: RoundedRectangleBorder(),
   );
 
-  static final _outlinedButtonTheme = OutlinedButtonThemeData(
+  static final outlinedButtonTheme = OutlinedButtonThemeData(
     style: ButtonStyle(
       minimumSize: MaterialStateProperty.all(
         Size(150.0, 60.0),
@@ -112,7 +112,7 @@ class Styles {
     ),
   );
 
-  static final _textButtonTheme = TextButtonThemeData(
+  static final textButtonTheme = TextButtonThemeData(
     style: ButtonStyle(
       textStyle: MaterialStateProperty.all(
         normalText.copyWith(

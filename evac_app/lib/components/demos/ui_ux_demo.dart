@@ -1,4 +1,5 @@
 import 'package:evac_app/styles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/survey_kit.dart';
 
@@ -25,12 +26,23 @@ class _UiUxDemoState extends State<UiUxDemo> {
                 snapshot.hasData &&
                 snapshot.data != null) {
               final task = snapshot.data!;
-              return SurveyKit(
-                onResult: (SurveyResult result) {
-                  print(result.finishReason);
-                },
-                task: task,
-                themeData: getTheme(context),
+              return DefaultTextStyle(
+                style: Styles.normalText,
+                child: SurveyKit(
+                  onResult: (SurveyResult result) {
+                    print(result.finishReason);
+                  },
+                  task: task,
+                  themeData: Styles.darkTheme.copyWith(
+                    cupertinoOverrideTheme: CupertinoThemeData(
+                      textTheme: CupertinoTextThemeData(
+                        textStyle: Styles.normalText.copyWith(fontSize: 24),
+                      ),
+                    ),
+                    outlinedButtonTheme: Styles.outlinedButtonTheme,
+                    textButtonTheme: Styles.textButtonTheme,
+                  ),
+                ),
               );
             }
             return CircularProgressIndicator.adaptive();
