@@ -35,6 +35,8 @@ class _UiUxDemoState extends State<UiUxDemo> {
                   task: task,
                   themeData: Styles.darkTheme.copyWith(
                     cupertinoOverrideTheme: CupertinoThemeData(
+                      brightness: Brightness.dark,
+                      barBackgroundColor: Styles.backgroundColor,
                       textTheme: CupertinoTextThemeData(
                         textStyle: Styles.normalText.copyWith(fontSize: 24),
                       ),
