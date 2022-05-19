@@ -57,7 +57,7 @@ class TrajectoryDatabaseManager {
 
   Future<void> wipeData() async {
     await deleteDatabase(_DATABASE_FILENAME);
-    return initialize();
+    return await initialize();
   }
 
   static void createTables(Database db, String sql) async {

@@ -29,6 +29,10 @@ class LocationTracker {
       String result = await canUseLocation();
       if (result == 'yes') {
         print('location available');
+        // clearing previous data
+        // #88: this could be moved to "Aquire GPS Signal"
+        await _clearDB(_databaseManager);
+        // getting location stream:
         _locationService = LocationService();
         // this line makes sure that if a second drill is run while app is still
         // open, the data from the end of the last drill is not erroneously put
